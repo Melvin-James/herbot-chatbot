@@ -1,6 +1,6 @@
+const dotenv = require("dotenv");
 const express = require("express");
 const mongoose = require("mongoose");
-const dotenv = require("dotenv");
 const chatRoutes = require("./routes/chatRoutes");
 const bodyParser = require("body-parser");
 
@@ -18,10 +18,15 @@ app.set("view engine", "ejs");
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(() => console.log("✅ MongoDB Connected"))
-.catch((error) => console.error("❌ MongoDB Connection Error:", error));
+    tls: true, // Ensure secure TLS connection
+    serverSelectionTimeoutMS: 5000, // Reduce initial connection timeout
+    connectTimeoutMS: 10000, // Increase connection timeout
+})
+.then(() => console.log("✅ MongoDB Connected"))
+.catch((error) => {
+    console.error("❌ MongoDB Connection Error:", error);
+    process.exit(1); // Exit process if connection fails
+});
 
 // Home Route - Render Chatbot UI
 app.get("/", (req, res) => {

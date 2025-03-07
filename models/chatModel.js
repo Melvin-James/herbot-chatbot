@@ -5,7 +5,7 @@ const chatSchema = new mongoose.Schema({
     answer: { type: String, required: true },
 });
 
-const Chat = mongoose.model("Chat", chatSchema);
+const Chat = mongoose.model("chat", chatSchema);
 
 module.exports = Chat;
 

@@ -1,5 +1,5 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
-require('dotenv').config(); 
 
 const uri = process.env.MONGO_URI;
 
@@ -11,9 +11,12 @@ if (!uri) {
 const connectDB = async () => {
     try {
         await mongoose.connect(uri, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
+            tls: true, // Ensure secure connection
+            tlsAllowInvalidCertificates: false, // Don't allow invalid certs
+            serverSelectionTimeoutMS: 5000, // Reduce wait time
+            connectTimeoutMS: 10000, // Increase connection timeout
         });
+
         console.log("✅ MongoDB Connected Successfully");
     } catch (error) {
         console.error("❌ MongoDB Connection Error:", error);
@@ -22,4 +25,3 @@ const connectDB = async () => {
 };
 
 module.exports = connectDB;
-
