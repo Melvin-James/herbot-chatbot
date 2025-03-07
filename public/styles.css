@@ -1,87 +1,116 @@
 /* General Styles */
+/* 🌸 General Styles */
 body {
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    color: white;
+    background: #f3e5f5; /* Soft purple */
+    color: #4a148c; /* Dark purple */
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     min-height: 100vh;
 }
 
-/* Navbar */
-.navbar.bg-purple {
-    background: rgba(106, 17, 203, 0.8); /* Purple with transparency */
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
+/* 🔹 Navbar */
 .navbar-brand {
-    font-size: 1.5rem;
+    color: purple; /* Better contrast */
     font-weight: bold;
 }
-
-/* Chat Container */
+.navbar-brand:hover {
+    color:purple; /* Keep it white on hover */
+}
+/* 🗨 Chat Container */
 .chat-container {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     border-radius: 15px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
 }
 
-/* Chat Box */
+/* 🎭 Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 📦 Chat Box */
 .chat-box {
-    height: 500px;
+    height: 60vh;
     overflow-y: auto;
     padding: 10px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     margin-bottom: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='%239C27B0' fill-opacity='0.1'%3E%3Cpath d='M50 0h50v50H50zM0 50h50v50H0z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-/* Message Bubbles */
+/* 🗨 Message Bubbles */
 .message {
     max-width: 70%;
     padding: 10px 15px;
     margin-bottom: 10px;
     border-radius: 20px;
     position: relative;
+    animation: slideIn 0.5s ease-in-out;
 }
 
+/* 🎭 Slide-in Animation */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 💜 User Message */
 .user-message {
     background: rgba(106, 17, 203, 0.8);
+    color: white;
     margin-left: auto;
     text-align: right;
 }
 
+/* 🤖 Bot Message */
 .bot-message {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+    color: #4a148c;
     margin-right: auto;
     text-align: left;
 }
 
-/* Input Box */
+.bot-message::before {
+    content: "🌸"; /* Floral emoji */
+    margin-right: 5px;
+}
+
+/* 🎤 Chat Input */
 .chat-input {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap; /* Ensures responsiveness */
+    animation: fadeIn 1s ease-in-out;
 }
 
 .glassy-input {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.9);
     border: none;
-    color: white;
+    color: #4a148c;
     backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 10px 20px;
     flex: 1;
+    transition: box-shadow 0.3s ease;
+}
+
+.glassy-input:focus {
+    box-shadow: 0 0 10px rgba(106, 17, 203, 0.5);
 }
 
 .glassy-input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(74, 20, 140, 0.5);
 }
 
+/* 🚀 Send Button */
 .btn-purple {
     background: rgba(106, 17, 203, 0.8);
     border: none;
@@ -89,9 +118,54 @@ body {
     border-radius: 20px;
     padding: 10px 20px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
+/* 💡 Better Hover Effect */
 .btn-purple:hover {
-    background: rgba(106, 17, 203, 1);
+    background: rgba(85, 0, 153, 0.9); /* Darker purple */
+    transform: scale(1.05);
+    color: white;
+}
+
+/* 📱 Mobile-Friendly */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .chat-container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .chat-box {
+        height: 50vh;
+    }
+
+    .message {
+        max-width: 80%;
+    }
+
+    .glassy-input {
+        padding: 8px 15px;
+    }
+
+    .btn-purple {
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .chat-box {
+        height: 40vh;
+    }
+
+    .message {
+        max-width: 90%;
+    }
 }

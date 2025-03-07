@@ -18,6 +18,15 @@ const chats = [
     { question: "Who started Women's Day?", answer: "Clara Zetkin proposed the idea in 1910, and the first Women's Day was celebrated in 1911." },
     { question: "How can we support Women's Day?", answer: "You can support Women's Day by promoting gender equality, supporting women-led businesses, and advocating for women's rights." },
     { question: "What are some Women's Day activities?", answer: "Common activities include rallies, educational events, social media campaigns, and honoring women's achievements." },
+    { question: "Who was the first woman to win a Nobel Prize?", answer: "Marie Curie was the first woman to win a Nobel Prize in 1903 for Physics." },
+    { question: "Who was the first female Prime Minister in the world?", answer: "Sirimavo Bandaranaike of Sri Lanka became the world’s first female Prime Minister in 1960." },
+    { question: "Who was the first woman to go to space?", answer: "Valentina Tereshkova from the Soviet Union became the first woman in space in 1963." },
+    { question: "Who was the first female President in the world?", answer: "Vigdís Finnbogadóttir of Iceland was the first woman elected as a head of state in 1980." },
+    { question: "What are some challenges women still face today?", answer: "Women still face challenges like gender pay gaps, lack of education, workplace discrimination, gender-based violence, and underrepresentation in leadership." },
+    { question: "What is the gender pay gap?", answer: "The gender pay gap refers to the difference in earnings between men and women. Women, on average, earn 20% less than men worldwide." },
+    { question: "How can we support gender equality?", answer: "You can support gender equality by educating yourself, advocating for women’s rights, supporting women-led businesses, and challenging gender stereotypes." },
+    { question: "Can you share an inspiring Women's Day quote?", answer: '"There is no limit to what we, as women, can accomplish." — Michelle Obama' },
+    { question: "Another Women's Day quote, please!", answer: '"We realize the importance of our voices only when we are silenced." — Malala Yousafzai' }
 ];
 
 const seedDB = async () => {
